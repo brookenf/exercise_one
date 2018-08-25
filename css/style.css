@@ -1,0 +1,116 @@
+/*my css stylesheet for Exercise 1*/
+
+.cards{
+  max-width: 85%;
+  margin: auto;
+}
+
+/*styling for name/dashed lines*/
+#title{
+  font-family: 'Tahoma';
+  border-bottom: 1px dashed #000;
+  position: relative;
+  font-weight: bolder;
+  font-size: 1.2em;
+  padding-bottom: 0.5%;
+}
+
+#title:after{
+  border-bottom: 1px dashed #000;
+  content:'';
+  left: 0;
+  position: absolute;
+  bottom: -3px;
+  width: 100%;
+}
+
+/*styling for images*/
+img{
+  width: 100%;
+  border-radius: 5px;
+  height:auto;
+  max-height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.column:hover img{
+  filter: gray; /* IE5+ */
+  -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+  transition: .5s ease-in-out;
+}
+
+/*images in line with each other*/
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.column {
+  float: left;
+  position: relative;
+  width: 45%;
+  max-height: 360px;
+  margin: 0;
+}
+.row .bubbles{
+  float: right;
+}
+
+/*the captions*/
+.caption{
+  position: absolute;
+  float: left;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  padding: 18px;
+  padding-top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  height: 13%;
+  transition: .5s ease-in-out;
+}
+
+.column:hover .caption{
+  height: 33%;
+}
+
+.text {
+  color: #000;
+  font-size: 1.1em;
+  font-family: 'Georgia';
+  max-width: 95%;
+}
+
+.text .shown{
+  font-size: 1.2em;
+  font-family: 'Tahoma';
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 900;
+}
+
+
+/*responsiveness*/
+@media screen and (max-width: 650px) {
+  .column {
+    flex: 100%;
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  .row .bubbles{
+    float: left;
+  }
+
+  .caption{
+    width: 100%;
+  }
+
+  .text{
+    max-width: 90%;
+  }
+}
